@@ -378,7 +378,7 @@
 <details>
 <summary>Конфигурация R2 (rus-msk-r2)</summary>
 
-```text
+```
 rus-msk-r2#sh run
 Building configuration...
 
