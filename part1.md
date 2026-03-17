@@ -13,4 +13,8 @@
 
 ### Шаг 1. Построение топологии
 В эмуляторе Cisco Packet Tracer была собрана сеть согласно схеме. Топология включает три коммутатора, один многоуровнеый коммутатор и три маршрутизатора, сервер и 8 ПК, соединенные соответствующими интерфейсами.
-<img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/21187e6f-3ff9-456b-8c6b-3bee6040daeb" />*Рисунок 1. Схема топологии сети в Cisco Packet Tracer*
+<img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/21187e6f-3ff9-456b-8c6b-3bee6040daeb" />
+<p align="center">
+  <img src="путь_к_картинке.png" alt="Описание"><br>
+  <em>Рисунок 1. Схема топологии сети в Cisco Packet Tracer</em>
+</p>
