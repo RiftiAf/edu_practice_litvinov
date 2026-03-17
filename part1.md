@@ -26,7 +26,7 @@
 </p>
 
 ### Шаг 3. Переименование устройств
-Переименовал все устройства согласно шаблону ТЗ — как визуально, так и с помощью команды hostname
+Переименовал все устройства согласно шаблону ТЗ — как визуально, так и с помощью команды hostname.
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/dc9b1e83-6a3c-4d6c-b0bc-162e83f96445"><br>
   <em>Рисунок 3. Изменение hostname на rus-nsk-sw0</em>
@@ -38,7 +38,7 @@
 </p>
 
 ### Шаг 4. Настройка доменных имен
-Доменные имена коммутаторов настроены по местоположению
+Доменные имена коммутаторов настроены по местоположению.
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/522e42e2-d6fe-4331-8f25-f5200dfab792"><br>
   <em>Рисунок 5. Настройка domain-name на R1</em>
@@ -73,6 +73,32 @@
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/25246b69-bdb2-4ee4-a5c0-d17c51b7438c"><br>
   <em>Рисунок 11. Настройка domain-name на SW2</em>
 </p>
+
+### Шаг 5. Создание VLAN на коммутаторах в Новосибирске
+На коммутаторах SW0 и SW1 созданы VLAN 2, 3 и 4 без присвоения им имен.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/06b9c8cd-66a3-4c3f-99bc-76075f70953a"><br>
+  <em>Рисунок 12. Cоздание VLAN на SW0</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/9e54b458-57e4-44b0-b624-5b9b6f9b4fdf"><br>
+  <em>Рисунок 13. Cоздание VLAN на SW1</em>
+</p>
+
+### Шаг 6. Назначение портов
+На коммутаторах SW0 и SW1 выполнена привязка интерфейсов к VLAN согласно нумерации портов.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/8d48a4e5-c608-4870-9677-ab790c860cd9"><br>
+  <em>Рисунок 14. Настройка access-портов для VLAN на SW1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2745d4b3-3f9b-4460-8d56-5bb0e5ae64d5"><br>
+  <em>Рисунок 15. Настройка access-портов для VLAN на SW0</em>
+</p>
+
+
 
 
 
