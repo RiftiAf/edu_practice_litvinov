@@ -17,3 +17,5 @@
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/21187e6f-3ff9-456b-8c6b-3bee6040daeb"><br>
   <em>Рисунок 1. Схема топологии сети в Cisco Packet Tracer</em>
 </p>
+
+попропропропропропро
