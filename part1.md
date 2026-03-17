@@ -49,6 +49,32 @@
   <em>Рисунок 6. Настройка domain-name на SW0</em>
 </p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/9eece586-bef9-4222-a019-0f141ac0e26c"><br>
+  <em>Рисунок 7. Настройка domain-name на SW1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3aa7656e-9fbe-4dca-9035-fe7e7cfaa997"><br>
+  <em>Рисунок 8. Настройка domain-name на MLS</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/d3f8f3bb-94ab-4cc7-9262-364d15db80b7"><br>
+  <em>Рисунок 9. Настройка domain-name на R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/759627e5-8654-41f1-ad1f-50daad76be23"><br>
+  <em>Рисунок 10. Настройка domain-name на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/25246b69-bdb2-4ee4-a5c0-d17c51b7438c"><br>
+  <em>Рисунок 11. Настройка domain-name на SW2</em>
+</p>
+
+
 
 
 
