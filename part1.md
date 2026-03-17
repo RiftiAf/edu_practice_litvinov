@@ -19,9 +19,27 @@
 </p>
 
 ### Шаг 2. Создание сообщения дня
-На каждом роутере настроено сообщение дня согласно формату из ТЗ. На фотографии видно, какую команду я применял.
+На каждом роутере настроено сообщение дня согласно формату из ТЗ(Техническое задание). На фотографии видно, какую команду я применял.
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/e14e06b8-5e5e-4c87-94d4-69ce43818658"><br>
   <em>Рисунок 2. Настройка MOTD</em>
 </p>
+
+### Шаг 3. Переименование устройств
+Переименовал все устройства согласно шаблону ТЗ — как визуально, так и с помощью команды hostname
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/dc9b1e83-6a3c-4d6c-b0bc-162e83f96445"><br>
+  <em>Рисунок 3. Изменение hostname на rus-nsk-sw0</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c4f9cabc-4b82-4cf0-9bf3-8affd3cde236"><br>
+  <em>Рисунок 4. Измененные устройства</em>
+</p>
+
+
+
+
+
+
 
