@@ -44,17 +44,15 @@
   <em>Рисунок 5. Настройка domain-name на R1</em>
 </p>
 
-
-
-
 <p align="center">
-  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/522e42e2-d6fe-4331-8f25-f5200dfab792"><br>
-  <em>Рисунок 5. Настройка domain-name на R1</em>
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f4e4933a-e5e2-4ec7-8f72-27971311356c"><br>
+  <em>Рисунок 6. Настройка domain-name на SW0</em>
 </p>
 
 
 
-Рисунок 5. Настройка domain-name на
+
+
 
 
 
