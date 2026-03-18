@@ -517,7 +517,7 @@ EIGRP AS 100 на R1
 EIGRP AS 100 на R2
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/02164f47-0a27-42c1-afaa-b88f1683890d"><br>
-  <em>Рисунок 51. Конфигурация EIGRP AS 100 на R1</em>
+  <em>Рисунок 51. Конфигурация EIGRP AS 100 на R2</em>
 </p>
 
 EIGRP AS 100 на R3
