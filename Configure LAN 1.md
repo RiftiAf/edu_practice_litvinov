@@ -57,11 +57,22 @@
 
 [Часть 7. Настройка туннелей и RIPv2](#part7)
 - [Шаг 1. Создание loopback-интерфейса на R1](#part7-step1)
-- [Шаг 2. ](#part7-step2)
-- [Шаг 3. ](#part7-step3)
-- [Шаг 4. ](#part7-step4)
-- [Шаг 5. ](#part7-step5)
-- [Шаг 6. ](#part7-step6)
+- [Шаг 2. Создание loopback-интерфейса на R3](#part7-step2)
+- [Шаг 3. Настройка RIPv2 на R1 и R3 для объявления loopback-сетей](#part7-step3)
+- [Шаг 4. Обеспечение работы RIPv2 только на R1 и R3](#part7-step4)
+- [Шаг 5. Настройка GRE-туннеля между R1 и R3](#part7-step5)
+- [Шаг 6. Проверка связи между loopback-интерфейсами через туннель](#part7-step6)
+
+[Часть 8. Настройка NTP, Syslog, SNMP, FTP/TFTP](#part8)
+- [Шаг 1. Настройка NTP и Syslog](#part8-step1)
+- [Шаг 2. Включение SNMP на R2 и R3](#part8-step2)
+- [Шаг 3. Включение telnet на R3 с AAA-аутентификацией](#part8-step3)
+- [Шаг 4. Настройка R2 на использование FTP-сервера](#part8-step4)
+- [Шаг 5. Отправка копии конфигурации R2 на сервер по FTP](#part8-step5)
+- [Шаг 6. Отправка копии конфигурации R3 на сервер по TFTP](#part8-step6)
+- [Шаг 7. Проверка отсутствия команд boot system на R3](#part8-step7)
+- [Шаг 8. Проверка подключения по telnet к R3](#part8-step8)
+- [Шаг 9. Изменение локального имени пользователя в R3 с использованием процедур восстановления пароля](#part8-step9)
 
 [Полная конфигурация устройств](#part9)
 
@@ -623,70 +634,228 @@ EIGRP AS 100 на MLS
 
 ---
 
-# <a id="part7"></a>Часть 7. Тут явно что-то будет
+# <a id="part7"></a>Часть 7. Настройка туннелей и RIPv2
 
 ## Цель работы
-тут явно что-то будет
+Настроить loopback-интерфейсы на маршрутизаторах R1 и R3, организовать связь между ними через GRE-туннель и настроить RIPv2 только на этих маршрутизаторах.
 
 ---
 
 ## Задачи
-тут явно что-то будет
+1. Создать loopback-интерфейс 1 на R1 с IP-адресом 192.168.101.1/24.
+2. Создать loopback-интерфейс 3 на R3 с IP-адресом 192.168.103.3/24.
+3. Настроить RIPv2 на R1 и R3 для объявления loopback-сетей.
+4. Обеспечить работу RIPv2 только на R1 и R3.
+5. Настроить GRE-туннель между R1 и R3 с адресацией 200.200.200.0/24.
+6. Проверить связь между loopback-интерфейсами с помощью расширенного ping.
 
 ---
 
 ## Ход выполнения
 
 ### <a id="part7-step1"></a>Шаг 1. Создание loopback-интерфейса на R1
+На маршрутизаторе R1 создал loopback-интерфейс 1 и назначил ему IP-адрес 192.168.101.1/24 согласно заданию. Этот виртуальный интерфейс будет использоваться для тестирования работы GRE-туннеля и протокола RIPv2
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/285f6662-9157-4502-a7eb-21348bea3c22"><br>
+  <em>Рисунок 61. Создание loopback-интерфейса на R1</em>
+</p>
 
+### <a id="part7-step2"></a>Шаг 2. Создание loopback-интерфейса на R3
+Создал на R3 loopback-интерфейс 192.168.103.3/24.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/892e1415-4783-4f42-975d-f4dc455a92b0"><br>
+  <em>Рисунок 62. Создание loopback-интерфейса на R3</em>
+</p>
 
+### <a id="part7-step3"></a>Шаг 3. Настройка RIPv2 на R1 и R3 для объявления loopback-сетей
+Настроил протокол динамической маршрутизации RIPv2 на маршрутизаторах R1 и R3.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/96ebe8d6-ab15-4409-8071-4a46f4cbde40"><br>
+  <em>Рисунок 63. Настройка RIPv2 на маршрутизаторе R3</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/6dfb04a3-38a7-4b46-885f-aba2c140f4cd"><br>
+  <em>Рисунок 64. Настройка RIPv2 на маршрутизаторе R1</em>
+</p>
 
+### <a id="part7-step4"></a>Шаг 4. Обеспечение работы RIPv2 только на R1 и R3
+Сделал так, чтобы RIPv2 работал только на R1 и R3 - настроил passive-interface default, чтобы заблокировать RIP на всех интерфейсах, а затем разрешил его только на fa0/1.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/bdd48cf1-c25f-4a57-b4c4-a4fcca68622e"><br>
+  <em>Рисунок 65. RIPv2 только на R1</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/18e32261-9dd4-415b-9614-859ae13ef8f7"><br>
+  <em>Рисунок 66. RIPv2 только на R3</em>
+</p>
 
+### <a id="part7-step5"></a>Шаг 5. Настройка GRE-туннеля между R1 и R3
+Поднял GRE-туннель между R1 и R3: создал интерфейс Tunnel0 с адресом 200.200.200.1/24, указал источник fa0/1 и назначение адрес R3. Добавил сеть туннеля 200.200.200.0 в RIPv2.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c701b279-ac02-45d3-8fc3-3ba36153d1b4"><br>
+  <em>Рисунок 67. Настройка GRE-туннеля на R1</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/d1c2fb2d-bda8-474c-a8d1-3175967d26fc"><br>
+  <em>Рисунок 68. Настройка GRE-туннеля на R3</em>
+</p>
 
+### <a id="part7-step6"></a>Шаг 6. Проверка связи между loopback-интерфейсами через туннель
+Для проверки связи между loopback-интерфейсами использовал расширенный ping с указанием источника.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f9c362fe-17a6-4127-acd4-841aeffa9585"><br>
+  <em>Рисунок 69. Расширенный ping с R1</em>
+</p>
 
+---
 
+## Вывод
+В седьмой части работы настроил изолированную маршрутизацию между R1 и R3. Создал loopback-интерфейсы, организовал GRE-туннель с адресацией 200.200.200.0/24 и настроил протокол RIPv2 только на этих роутерах. Проверка расширенным ping подтвердила связность между loopback-интерфейсами.
 
+---
 
+# <a id="part8"></a>Часть 8. Настройка NTP, Syslog, SNMP, FTP/TFTP
 
+## Цель работы
+Настроить взаимодействие сетевых устройств с сервером 10.0.0.100 для синхронизации времени, централизованного логирования, мониторинга и резервного копирования конфигураций.
 
+---
 
+## Задачи
+1. Настроить R1-3 и MLS на использование сервера 10.0.0.100 в качестве защищенного NTP-сервера и Syslog-сервера.
+2. Включить SNMP на R2 и R3.
+3. Включить telnet на R3 с AAA-аутентификацией через сервер 10.0.0.100.
+4. Настроить R2 на использование сервера 10.0.0.100 в качестве FTP-сервера.
+5. Отправить копию конфигурации R2 на сервер по FTP.
+6. Отправить копию конфигурации R3 на сервер по TFTP.
+7. Убедиться, что на R3 нет команд boot system.
+8. Проверить возможность подключения к R3 по telnet.
+9. Изменить локальное имя пользователя в R3, используя процедуры восстановления пароля.
 
+---
 
+## Ход выполнения
 
+### <a id="part8-step1"></a>Шаг 1. Настройка NTP и Syslog
+На R1-3, MLS настроил использование сервера 10.0.0.100 в качестве защищенного NTP-сервера с ключом аутентификации и в качестве Syslog-сервера.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/47ffc789-c2c1-407f-af4c-b65d32fcbcb7"><br>
+  <em>Рисунок 70. NTP и Syslog на R1</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/9f91daf4-ffe2-4df4-9672-e617e8ea2736"><br>
+  <em>Рисунок 71. NTP и Syslog на R2</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f9886a7d-287b-44e6-bf32-ae1eae3375b5"><br>
+  <em>Рисунок 72. NTP и Syslog на R3</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/636d5ac1-7ba3-433b-9d66-71c015bd7d93"><br>
+  <em>Рисунок 73. NTP и Syslog на MLS</em>
+</p>
 
+### <a id="part8-step2"></a>Шаг 2. Включение SNMP на R2 и R3
+На маршрутизаторах R2 и R3 включил SNMP с паролем "cisco" для сообщений set и get.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/e64b5f9b-1e16-4151-92e9-9e91a63e1197"><br>
+  <em>Рисунок 74. Настройка SNMP на R3</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/87dfb4ea-43da-46af-84fa-7d265f2b6793"><br>
+  <em>Рисунок 75. Настройка SNMP на R2</em>
+</p>
 
+### <a id="part8-step3"></a>Шаг 3. Включение telnet на R3 с AAA-аутентификацией
+Настроил на R3 AAA-аутентификацию для Telnet. Первым делом роутер обращается к серверу 10.0.0.100 для проверки логина и пароля, но если сервер "упал" - используется локальная база пользователь standby.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/86aea75f-0aed-4106-a3e0-6cdbe298e1d9"><br>
+  <em>Рисунок 76. Настройка AAA на R3</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/34711c0b-c948-40e4-b524-4e807ad718b7"><br>
+  <em>Рисунок 76.1. Настройка AAA на R3 (продолжение)</em>
+</p>
 
+### <a id="part8-step4"></a>Шаг 4. Настройка R2 на использование FTP-сервера
+На R2 настроил использование сервера 10.0.0.100 в качестве FTP-сервера с учетными данными.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/ff61bd2b-f371-4951-961e-097e207bf700"><br>
+  <em>Рисунок 77. Настройка FTP на R2</em>
+</p>
 
+### <a id="part8-step5"></a>Шаг 5. Отправка копии конфигурации R2 на сервер по FTP
+С R2 отправил копию текущей конфигурации на FTP-сервер 10.0.0.100.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/d240c7e5-e550-45b5-97dc-99ee5901c441"><br>
+  <em>Рисунок 78. Копирование по FTP с R2</em>
+</p>
 
+### <a id="part8-step6"></a>Шаг 6. Отправка копии конфигурации R3 на сервер по TFTP
+Сделал бэкап конфигурации R3 на TFTP-сервер 10.0.0.100.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/d7bee00b-e95f-4d5e-8740-b6b28470b598"><br>
+  <em>Рисунок 78. Копирование по TFTP с R3</em>
+</p>
 
+### <a id="part8-step7"></a>Шаг 7. Проверка отсутствия команд boot system на R3
+Проверил, что на R3 не используются команды boot system.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/62e53850-1b8d-439d-b696-9e2af31ff7ac"><br>
+  <em>Рисунок 79. Проверка boot system</em>
+</p>
 
+### <a id="part8-step8"></a>Шаг 8. Проверка подключения по telnet к R3
+Проверил возможность подключения к R3 по telnet с маршрутизатора R2, используя имя пользователя standby. Так как я запутался в задании, второй скриншот дополняет выполнение задания.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/713fbb5e-5754-4e25-bf4e-524326cb5f67"><br>
+  <em>Рисунок 80. Telnet с R2 к R3</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3b6f5bea-578c-4b94-bf93-9b372f738b4a"><br>
+  <em>Рисунок 81. Ping и Telnet standby</em>
+</p>
 
+### <a id="part8-step9"></a>Шаг 9. Изменение локального имени пользователя в R3 с использованием процедур восстановления пароля
+На R3 изменил локальное имя пользователя, используя процедуры восстановления пароля.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/45436920-0719-405a-af1a-abb42e622afc"><br>
+  <em>Рисунок 82. Процедура восстановления пароля на R3</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b6a1073f-dc2d-45ad-850e-bfd3f3383ede"><br>
+  <em>Рисунок 83. Восстановление конфигурации и изменение пароля</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/456fda8c-d326-4094-bfbf-7da1f362cad0"><br>
+  <em>Рисунок 84. Завершение настройки пароля и восстановление загрузки</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/7d4992fc-840d-47af-8bc0-9a2f8b3e1c50"><br>
+  <em>Рисунок 85. Проверка доступа</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/82d9d2ce-3c43-46bc-ba85-6e3e6920a1d1"><br>
+  <em>Рисунок 86. Подтверждение изменения пользователя</em>
+</p>
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
+## Вывод
+В восьмой части работы настроил сервисы управления сетью: NTP и Syslog на устройствах R1-3, MLS с использованием сервера 10.0.0.100, SNMP на R2 и R3, AAA-аутентификацию на R3. Настроил резервное копирование конфигураций через FTP и TFTP. Проверил отсутствие команд boot system на R3, telnet-доступ с именем standby и выполнил процедуру восстановления пароля.
 
 
 
@@ -740,6 +909,7 @@ ip ftp username cisco
 ip ftp password cisco
 no ip domain-lookup
 ip domain-name msk.local
+ip host standby 10.0.0.3 
 !
 !
 spanning-tree mode pvst
