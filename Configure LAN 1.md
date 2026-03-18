@@ -404,7 +404,7 @@
 ### <a id="part3-step4"></a>Шаг 4. Назначение интерфейсов в VLAN
 Назначил порты на MLS:
 1. f0/4 - VLAN 100
-2. f0/5 - VLAN 200
+2. f0/5 - VLAN 200<br>
 Оба порта настроил в режиме access, чтобы подключенные ПК попадали сразу в нужную подсеть.
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/009cd417-6b08-4712-9ae9-4706da02759c"><br>
