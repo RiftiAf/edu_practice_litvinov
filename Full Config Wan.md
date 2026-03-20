@@ -13,38 +13,34 @@
 - [Шаг 4. Настройка R3](#part1-step4)
 - [Шаг 5. Настройка R1973](#part1-step5)
 
-[Часть 2. Тут явно что-то будет](#part2)
-- [Шаг 1. Тут явно что-то будет](#part2-step1)
+[Часть 2. Настройка PPP с аутентификацией CHAP](#part2)
+- [Шаг 1. Настройка инкапсуляции PPP на R3 и R1973](#part2-step1)
 
-[Часть 3. Тут явно что-то будет](#part3)
-- [Шаг 1. Тут явно что-то будет](#part3-step1)
-- [Шаг 2. Тут явно что-то будет](#part3-step2)
-- [Шаг 3. Тут явно что-то будет](#part3-step3)
-- [Шаг 4. Тут явно что-то будет](#part3-step4)
-- [Шаг 5. Тут явно что-то будет](#part3-step5)
-- [Шаг 6. Тут явно что-то будет](#part3-step6)
-- [Шаг 7. Тут явно что-то будет](#part3-step7)
-- [Шаг 7. Тут явно что-то будет](#part3-step8)
-- [Шаг 7. Тут явно что-то будет](#part3-step9)
-- [Шаг 7. Тут явно что-то будет](#part3-step10)
-- [Шаг 7. Тут явно что-то будет](#part3-step11)
-- [Шаг 7. Тут явно что-то будет](#part3-step12)
-- [Шаг 7. Тут явно что-то будет](#part3-step13)
+[Часть 3. Настройка OSPFv2](#part3)
+- [Шаг 1. Настройка OSPFv2 на R1, R2, R3](#part3-step1)
+- [Шаг 2. Настройка router-id на R2](#part3-step2)
+- [Шаг 3. Объявление сетей в OSPF](#part3-step3)
+- [Шаг 4. Проверка процесса OSPF](#part3-step4)
+- [Шаг 5. Интерфейс f0/0 R1 в area 1](#part3-step5)
+- [Шаг 6. Интерфейс f0/1 R1 в area 0](#part3-step6)
+- [Шаг 7. Интерфейс f0/0 R2 в area 23](#part3-step7)
+- [Шаг 8. Интерфейс f0/1 R2 в area 0](#part3-step8)
+- [Шаг 9. Интерфейсы R3 в area 23](#part3-step9)
+- [Шаг 10. Блокировка hello-пакетов на R1](#part3-step10)
+- [Шаг 11. Настройка R2 как DR](#part3-step11)
+- [Шаг 12. Настройка R3 как шлюза по умолчанию](#part3-step12)
 
-[Часть 4. Тут явно что-то будет](#part4)
-- [Шаг 1. Тут явно что-то будет](#part4-step1)
-- [Шаг 2. Тут явно что-то будет](#part4-step2)
-- [Шаг 3. Тут явно что-то будет](#part4-step3)
-- [Шаг 3. Тут явно что-то будет](#part4-step4)
-- [Шаг 3. Тут явно что-то будет](#part4-step5)
-- [Шаг 3. Тут явно что-то будет](#part4-step6)
+[Часть 4. Настройка BGP между R3 и R1973](#part4)
+- [Шаг 1-4. Настройка BGP соседства](#part4-step1)
+- [Шаг 5. Объявление loopback R1973 в BGP](#part4-step5)
+- [Шаг 6. Тут явно что-то будет](#part4-step6)
 
 [Часть 5. Тут явно что-то будет](#part5)
 - [Шаг 1. Тут явно что-то будет](#part5-step1)
 - [Шаг 2. Тут явно что-то будет](#part5-step2)
 - [Шаг 3. Тут явно что-то будет](#part5-step3)
-- [Шаг 3. Тут явно что-то будет](#part5-step4)
-- [Шаг 3. Тут явно что-то будет](#part5-step5)
+- [Шаг 4. Тут явно что-то будет](#part5-step4)
+- [Шаг 5. Тут явно что-то будет](#part5-step5)
 
 [Часть 6. Тут явно что-то будет](#part6)
 - [Шаг 1. Тут явно что-то будет](#part6-step1)
@@ -132,7 +128,225 @@
 ---
 
 ## Вывод
-В ходе выполнения первой части практической работы я построил топологию сети согласно заданию. На всех маршрутизаторах я выполнил базовую настройку интерфейсов с назначением IP-адресов в соответствии с ТЗ.
+В первой части работы я построил топологию сети согласно заданию. На всех маршрутизаторах я выполнил базовую настройку интерфейсов с назначением IP-адресов в соответствии с ТЗ.
+
+---
+
+# <a id="part2"></a>Часть 2. Настройка PPP с аутентификацией CHAP
+
+## Цель работы
+Настроить последовательное соединение между маршрутизаторами R3 и R1973 с использованием протокола PPP и обеспечить двустороннюю аутентификацию по протоколу CHAP для безопасного обмена данными.
+
+---
+
+## Задачи
+1. Изменить инкапсуляцию на последовательных интерфейсах R3 и R1973 на PPP.
+2. Создать локальные учетные записи для аутентификации.
+3. Настроить аутентификацию CHAP на обоих последовательных интерфейсах.
+4. Убедиться, что аутентификация прошла успешно и интерфейсы находятся в состоянии up/up.
+
+---
+
+## Ход выполнения
+
+### <a id="part2-step1"></a>Шаг 1. Настройка инкапсуляции PPP на R3 и R1973
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/979fee27-8035-4900-9c33-6097f31ad757"><br>
+  <em>Рисунок 6. Конфигурация на R1973</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/e8361301-8fb9-4a5a-9a9e-be38d8ec362b"><br>
+  <em>Рисунок 7. Статус интерфейса s0/0/0 на R1973</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/d0c4744a-eed4-44e1-8fbf-4bf22e0ad19f"><br>
+  <em>Рисунок 8. Конфигурация на R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/9b12420c-a1e4-44b1-93b1-c2a9d0ce8a11"><br>
+  <em>Рисунок 9. Статус интерфейса s0/0/0 на R3</em>
+</p>
+
+---
+
+## Вывод
+Во второй части работы я настроил последовательное соединение между R3 и R1973 с использованием протокола PPP и аутентификации CHAP.
+
+---
+
+# <a id="part3"></a>Часть 3. Настройка OSPFv2
+
+## Цель работы
+Настроить протокол динамической маршрутизации OSPFv2 на маршрутизаторах R1, R2 и R3 в соответствии с ТЗ.
+
+---
+
+## Задачи
+1. Запустить процесс OSPFv2 на всех трех маршрутизаторах.
+2. Установить Router ID 0.0.0.2 на маршрутизаторе R2.
+3. Объявить все подключенные сети в OSPF с распределением по зонам.
+4. Обеспечить единый номер процесса OSPF 100 на всех маршрутизаторах.
+5. Назначить интерфейс f0/0 R1 в зону 1.
+6. Назначить интерфейс f0/1 R1 в зону 0.
+7. Назначить интерфейс f0/0 R2 в зону 23.
+8. Назначить интерфейс f0/1 R2 в зону 0.
+9. Назначить интерфейсы g0/0, loopback 3 и loopback 33 R3 в зону 23.
+10. Заблокировать отправку hello-пакетов на всех интерфейсах R1, кроме f0/1.
+11. Настроить R2 так, чтобы он всегда был назначенным маршрутизатором.
+12. Настроить R3 как шлюз по умолчанию.
+
+---
+
+## Ход выполнения
+
+### <a id="part3-step1"></a>Шаг 1. Настройка OSPFv2 на R1, R2, R3
+OSPFv2 с номером 100 на каждом маршрутизаторе.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c9b0a438-2586-4b03-82b1-31f5187dac9e"><br>
+  <em>Рисунок 10. Настройка OSPF на R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3081782b-b804-4535-b198-d967f3a95e86"><br>
+  <em>Рисунок 11. Настройка OSPF на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/e650682b-cc4a-4c51-9579-11020e615a99"><br>
+  <em>Рисунок 12. Настройка OSPF на R3</em>
+</p>
+
+### <a id="part3-step2"></a>Шаг 2. Настройка router-id на R2
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/691d567f-ff72-457a-bdcc-7bd9aaceb2c3"><br>
+  <em>Рисунок 12. Настройка router-id на R2</em>
+</p>
+
+### <a id="part3-step3"></a>Шаг 3. Объявление сетей в OSPF
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f60bbfff-5408-40af-9210-2b0c44e349dd"><br>
+  <em>Рисунок 13. Объявление сетей в зоны 1 и 0 на R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b4645433-7fbb-4c0c-a316-baca290349c0"><br>
+  <em>Рисунок 14. Объявление сетей в зоны 0 и 23 на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/5398d1c7-08ae-4d77-b32e-d81c0ce57e74"><br>
+  <em>Рисунок 15. Объявление сетей зоны 23 на R3</em>
+</p>
+
+### <a id="part3-step4"></a>Шаг 4. Проверка процесса OSPF
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2128d23e-822b-4de7-8bd8-6d9a405a9e4b"><br>
+  <em>Рисунок 16. Проверка OSPF на R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/092f6a51-5a8a-447a-bfbb-52e922f7a6b0"><br>
+  <em>Рисунок 17. Проверка OSPF на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/5916a723-56cb-4da6-b1ec-e9379b6bd2ce"><br>
+  <em>Рисунок 18. Проверка OSPF на R3</em>
+</p>
+
+### <a id="part3-step5"></a>Шаг 5. Интерфейс f0/0 R1 в area 1
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/97cac656-c8fb-40cc-b22f-5a310074a1eb"><br>
+  <em>Рисунок 19. Интерфейс f0/0 R1 в area 1</em>
+</p>
+
+### <a id="part3-step6"></a>Шаг 6. Интерфейс f0/1 R1 в area 0
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/56204640-bf87-4276-a614-4b0b22c4610d"><br>
+  <em>Рисунок 20. Интерфейс f0/1 R1 в area 0</em>
+</p>
+
+### <a id="part3-step7"></a>Шаг 7. Интерфейс f0/0 R2 в area 23
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f2037c5d-68ed-4505-824b-9c86ed19dcc7"><br>
+  <em>Рисунок 21. Интерфейс f0/0 R2 в area 23</em>
+</p>
+
+### <a id="part3-step8"></a>Шаг 8. Интерфейс f0/1 R2 в area 0
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/83d1305d-6f27-4eac-b1a1-20f7c7b95b25"><br>
+  <em>Рисунок 22. Интерфейс f0/1 R2 в area 0</em>
+</p>
+
+### <a id="part3-step9"></a>Шаг 9. Интерфейсы R3 в area 23
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/54da57f5-c2a3-4fea-81c2-26dec1ae9e0f"><br>
+  <em>Рисунок 23. Интерфейсы R3 в area 23</em>
+</p>
+
+### <a id="part3-step10"></a>Шаг 10. Блокировка hello-пакетов на R1
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2b6ec239-3a11-4263-a663-b40f88633233"><br>
+  <em>Рисунок 24. Блокировка hello-пакетов на R1</em>
+</p>
+
+### <a id="part3-step11"></a>Шаг 11. Настройка R2 как DR
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/0a1a31f2-50e2-4db6-9de6-79a44438cbee"><br>
+  <em>Рисунок 25. Настройка R2 как DR</em>
+</p>
+
+### <a id="part3-step12"></a>Шаг 12. Настройка R3 как шлюза по умолчанию
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/defd01da-fea9-4816-8c46-56af92e24d7c"><br>
+  <em>Рисунок 26. Настройка R3 как шлюза по умолчанию</em>
+</p>
+
+---
+
+## Вывод
+В третьей части работы я настроил OSPFv2 на R1, R2 и R3 с распределением интерфейсов по зонам 0, 1 и 23. Все соседства установлены, межзональная маршрутизация работает, R3 распространяет маршрут по умолчанию.
+
+---
+
+# <a id="part4"></a>Часть 4. Настройка BGP между R3 и R1973
+
+## Цель работы
+Настроить BGP между R3 и R1973.
+
+---
+
+## Задачи
+1. Указать номера автономных систем: R3 - AS 3, R1973 - AS 1973.
+2. Установить внешнее BGP-соседство между маршрутизаторами.
+3. Настроить R1973 на объявление своего loopback-интерфейса R3.
+4. Настроить на R1973 маршрут по умолчанию, указывающий на R3.
+
+---
+
+## Ход выполнения
+
+### <a id="part4-step1"></a>Шаг 1-4. Настройка BGP соседства
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/8e4671b6-da92-49e0-a0e2-0c69fd6f9c24"><br>
+  <em>Рисунок 27. Настройка BGP на R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/5bca8a40-7895-4cd0-9d14-7875c8ce4c4d"><br>
+  <em>Рисунок 28. Настройка BGP на R1973</em>
+</p>
+
+### <a id="part4-step5"></a>Шаг 5. Объявление loopback R1973 в BGP
+
+
+
+
+
+
 
 
 
