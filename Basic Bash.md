@@ -39,3 +39,143 @@
 [Шаг 16. dir_info.sh](#part16)
 
 [Шаг 17. bash_history.sh](#part17)
+
+
+
+
+
+
+
+
+
+
+
+# <a id="part1"></a>Шаг 1. zero.sh
+
+
+
+# <a id="part2"></a>Шаг 2. start.sh
+
+
+
+# <a id="part3"></a>Шаг 3. start_2.sh
+
+
+
+# <a id="part4"></a>Шаг 4. file.sh
+
+
+
+# <a id="part5"></a>Шаг 5. my_dir.sh
+
+
+
+# <a id="part6"></a>Шаг 6. dir_m.sh
+
+
+
+# <a id="part7"></a>Шаг 7. user_light.sh
+
+
+
+
+
+
+
+# <a id="part8"></a>Шаг 8. user_f.sh
+
+
+
+
+
+
+
+# <a id="part9"></a>Шаг 9. user_f2.sh
+
+
+
+
+
+
+
+
+
+# <a id="part10"></a>Шаг 10. finder_liight.sh
+
+
+
+
+
+
+# <a id="part11"></a>Шаг 11. math.sh
+
+
+
+
+
+
+
+
+
+# <a id="part12"></a>Шаг 12. sort.sh
+
+
+
+
+
+# <a id="part13"></a>Шаг 13. io.sh
+
+
+
+
+
+
+# <a id="part14"></a>Шаг 14. user_use.sh
+
+
+
+
+
+
+
+
+
+# <a id="part15"></a>Шаг 15. sort_du.sh
+
+
+
+
+
+
+
+
+# <a id="part16"></a>Шаг 16. dir_info.sh
+
+
+
+
+
+# <a id="part17"></a>Шаг 17. bash_history.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
