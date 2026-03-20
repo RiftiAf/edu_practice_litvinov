@@ -8,10 +8,10 @@
 ## Содержание
 [Часть 1. Базовая настройка интерфейсов](#part1)
 - [Шаг 1. Шаг 1. Построение топологии](#part1-step1)
-- [Шаг 2. Тут явно что-то будет](#part1-step2)
-- [Шаг 3. Тут явно что-то будет](#part1-step3)
-- [Шаг 4. Тут явно что-то будет](#part1-step4)
-- [Шаг 5. Тут явно что-то будет](#part1-step5)
+- [Шаг 2. Настройка R1](#part1-step2)
+- [Шаг 3. Настройка R2](#part1-step3)
+- [Шаг 4. Настройка R3](#part1-step4)
+- [Шаг 5. Настройка R1973](#part1-step5)
 
 [Часть 2. Тут явно что-то будет](#part2)
 - [Шаг 1. Тут явно что-то будет](#part2-step1)
@@ -96,16 +96,38 @@
 ## Ход выполнения
 
 ### <a id="part1-step1"></a>Шаг 1. Построение топологии
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/55b515e8-df8c-4d2d-b455-79dd3606272d"><br>
+  <em>Рисунок 1. Схема топологии сети в Cisco Packet Tracer</em>
+</p>
 
+### <a id="part1-step2"></a>Шаг 2. Настройка R1
+Настроил R1 в соответствии с ТЗ (техническое задание).
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2c0f6a4e-12ef-4699-825e-3a66fc9037b6"><br>
+  <em>Рисунок 2. Настройка R1</em>
+</p>
 
+### <a id="part1-step3"></a>Шаг 3. Настройка R2
+Настроил R2 в соответствии с ТЗ.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b43dd5cb-3e6d-4d3d-8f9e-4c3a9b6e563c"><br>
+  <em>Рисунок 3. Настройка R2</em>
+</p>
 
+### <a id="part1-step4"></a>Шаг 4. Настройка R3
+Настроил R3 в соответствии с ТЗ.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/1bf671b4-8ebc-4675-8a06-dbc927c13f15"><br>
+  <em>Рисунок 4. Настройка R3</em>
+</p>
 
-
-
-
-
-
-
+### <a id="part1-step5"></a>Шаг 5. Настройка R1973
+Настроил R1973 в соответствии с ТЗ.
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/73c3ae47-6532-4b33-aecb-18343c6ee1d6"><br>
+  <em>Рисунок 5. Настройка R1973</em>
+</p>
 
 
 
