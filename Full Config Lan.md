@@ -77,6 +77,8 @@
 
 [Полная конфигурация устройств](#part9)
 
+[Логины и пароли](#part10)
+
 ---
 
 # <a id="part1"></a>Часть 1. Настройка коммутаторов в Новосибирске
@@ -1883,5 +1885,43 @@ line vty 5 15
 !
 !
 end
+```
+</details>
+
+
+# <a id="part10"></a>Логины и пароли
+Username:Password
+<details>
+<summary>SW1 (rus-nsk-sw1)</summary>
+
+```
+nsk:cisco
+
+```
+</details>
+
+<details>
+<summary>SW0 (rus-nsk-sw0)</summary>
+
+```
+nsk:cisco
+
+```
+
+</details>
+
+<details>
+<summary>R2 (rus-msk-R2)</summary>
+
+```
+-:cisco
+```
+</details>
+
+<details>
+<summary>R3 (rus-msk-R3)</summary>
+
+```
+admin:cisco
 ```
 </details>
