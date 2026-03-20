@@ -530,7 +530,3 @@ end
 
 ```
 </details>
-
-<details>
-
-</details>
