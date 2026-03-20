@@ -532,10 +532,5 @@ end
 </details>
 
 <details>
-<summary>Конфигурация R1937</summary>
 
-```
-<img width="682" height="676" alt="Снимок" src="https://github.com/user-attachments/assets/f1ead92f-8cd9-4226-ad77-4437e465b4ef" />
-
-```
 </details>
