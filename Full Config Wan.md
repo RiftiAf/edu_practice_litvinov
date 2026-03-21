@@ -930,7 +930,7 @@ end
 R3#sh run
 Building configuration...
 
-Current configuration : 1673 bytes
+Current configuration : 1671 bytes
 !
 version 15.1
 no service timestamps log datetime msec
@@ -1039,7 +1039,7 @@ ip route 0.0.0.0 0.0.0.0 Null0
 !
 ip flow-export version 9
 !
-ipv6 route ::/0 GigabitEthernet0/0
+ipv6 route ::/0 2001:12:12:12::2
 !
 !
 !
