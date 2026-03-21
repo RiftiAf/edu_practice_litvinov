@@ -33,44 +33,43 @@
 [Часть 4. Настройка BGP между R3 и R1973](#part4)
 - [Шаг 1-4. Настройка BGP соседства](#part4-step1)
 - [Шаг 5. Объявление loopback R1973 в BGP](#part4-step5)
-- [Шаг 6. Тут явно что-то будет](#part4-step6)
+- [Шаг 6. Настройка default route на R1973](#part4-step6)
 
-[Часть 5. Тут явно что-то будет](#part5)
-- [Шаг 1. Тут явно что-то будет](#part5-step1)
-- [Шаг 2. Тут явно что-то будет](#part5-step2)
-- [Шаг 3. Тут явно что-то будет](#part5-step3)
-- [Шаг 4. Тут явно что-то будет](#part5-step4)
-- [Шаг 5. Тут явно что-то будет](#part5-step5)
+[Часть 5. Установка лицензий на R3](#part5)
+- [Шаг 1. Проверка поддержки лицензий](#part5-step1)
+- [Шаг 2. Установка лицензии UCK9](#part5-step2)
+- [Шаг 3. Установка лицензии security9](#part5-step3)
+- [Шаг 4. Сохранение конфигурации](#part5-step4)
 
-[Часть 6. Тут явно что-то будет](#part6)
-- [Шаг 1. Тут явно что-то будет](#part6-step1)
-- [Шаг 2. Тут явно что-то будет](#part6-step2)
+[Часть 6. Настройка DHCP-ретранслятора](#part6)
+- [Шаг 1. Настройка R1 как DHCP-ретранслятора](#part6-step1)
+- [Шаг 2. Проверка связи](#part6-step2)
 
-[Часть 7. Тут явно что-то будет](#part7)
-- [Шаг 1. Тут явно что-то будет](#part7-step1)
-- [Шаг 2. Тут явно что-то будет](#part7-step2)
-- [Шаг 3. Тут явно что-то будет](#part7-step3)
-- [Шаг 4. Тут явно что-то будет](#part7-step4)
+[Часть 7. Настройка IPv6-адресов](#part7)
+- [Шаг 1. Настройка IPv6 адресов](#part7-step1)
+- [Шаг 2. Проверка маршрутизации IPv6](#part7-step2)
+- [Шаг 3. Проверка EUI-64 адресации](#part7-step3)
 
-[Часть 8. Тут явно что-то будет](#part8)
-- [Шаг 1. Тут явно что-то будет](#part8-step1)
-- [Шаг 2. Тут явно что-то будет](#part8-step2)
-- [Шаг 3. Тут явно что-то будет](#part8-step3)
-- [Шаг 4. Тут явно что-то будет](#part8-step4)
-- [Шаг 5. Тут явно что-то будет](#part8-step5)
-- [Шаг 6. Тут явно что-то будет](#part8-step6)
-- [Шаг 7. Тут явно что-то будет](#part8-step7)
-- [Шаг 8. Тут явно что-то будет](#part8-step8)
-- [Шаг 9. Тут явно что-то будет](#part8-step9)
+[Часть 8. Настройка OSPFv3](#part8)
+- [Шаг 1. Настройка OSPFv3](#part8-step1)
+- [Шаг 2. Проверка router-id](#part8-step2)
+- [Шаг 3. Проверка объявления сетей](#part8-step3)
+- [Шаг 4. Проверка процесса OSPFv3](#part8-step4)
+- [Шаг 5. Проверка зон на R1](#part8-step5)
+- [Шаг 6. Проверка зон на R2](#part8-step6)
+- [Шаг 7. Проверка зон на R3](#part8-step7)
+- [Шаг 8. Настройка пассивных интерфейсов на R1](#part8-step8)
+- [Шаг 9. Настройка default route на R3](#part8-step9)
 
-[Часть 9. ](#part9)
-- [Шаг 1. Тут явно что-то будет](#part9-step1)
-- [Шаг 2. Тут явно что-то будет](#part9-step2)
-- [Шаг 3. Тут явно что-то будет](#part9-step3)
-- [Шаг 4. Тут явно что-то будет](#part9-step4)
-- [Шаг 5. Тут явно что-то будет](#part9-step5)
+[Часть 9. Настройка EIGRPv6](#part9)
+- [Шаг 1. Настройка EIGRPv6](#part9-step1)
+- [Шаг 2. Проверка AS 100](#part9-step2)
+- [Шаг 3. Проверка router-id](#part9-step3)
+- [Шаг 4. Анонс loopback R1973 в EIGRPv6](#part9-step4)
+- [Шаг 5. Настройка default route на R1973](#part9-step5)
 
 [Полная конфигурация устройств](#part10)
+
 ---
 
 # <a id="part1"></a>Часть 1. Базовая настройка интерфейсов
@@ -341,34 +340,374 @@ OSPFv2 с номером 100 на каждом маршрутизаторе.
 </p>
 
 ### <a id="part4-step5"></a>Шаг 5. Объявление loopback R1973 в BGP
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f26dda5a-7a36-484f-aef5-81c647e0a3c4"><br>
+  <em>Рисунок 29. Объявление сети 73.73.73.0/24 в BGP на R1973</em>
+</p>
 
+### <a id="part4-step6"></a>Шаг 6. Настройка default route на R1973
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/665cc726-fa06-4c39-a63f-2e1de35602ac"><br>
+  <em>Рисунок 30. Настройка статического маршрута по умолчанию на R1973</em>
+</p>
 
+---
 
+## Вывод
+В четвёртой части работы я настроил BGP между R3 и R1973. Сессия установлена, сеть 73.73.73.0/24 объявлена в BGP, на R1973 добавлен статический маршрут по умолчанию через R3.
 
+---
 
+# <a id="part5"></a>Часть 5. Установка лицензий на R3
 
+## Цель работы
+Установить на маршрутизатор R3 лицензионные пакеты UCK9 и SecurityK9.
 
+---
 
+## Задачи
+1. Убедиться, что IOS на R3 поддерживает команды VOIP и расширенные настройки безопасности.
+2. Установить лицензию UCK9.
+3. Установить лицензию SecurityK9.
+4. Сохранить текущую конфигурацию.
+5. Перезагрузить маршрутизатор.
 
+---
 
+## Ход выполнения
 
+### <a id="part5-step1"></a>Шаг 1. Проверка поддержки лицензий
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/6bdc319a-5af6-4b8a-804a-9736af3840a9"><br>
+  <em>Рисунок 31. Проверка доступных лицензий на R3</em>
+</p>
 
+### <a id="part5-step2"></a>Шаг 2. Установка лицензии UCK9
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3e3dc327-feb9-43f2-9117-b67fc5a5e81e"><br>
+  <em>Рисунок 32. Команда установки лицензии UCK9</em>
+</p>
 
+### <a id="part5-step3"></a>Шаг 3. Установка лицензии security9
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/e40f617d-b480-4dba-8d49-a11d5809d963"><br>
+  <em>Рисунок 33. Команда установки лицензии securityk9</em>
+</p>
 
+### <a id="part5-step4"></a>Шаг 4. Сохранение конфигурации
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/97d3d85b-1af7-49fa-a3b5-9434e3256230"><br>
+  <em>Рисунок 34. Сохранение настроек лицензии</em>
+</p>
 
+---
 
+## Вывод
+В пятой части работы я установил на маршрутизатор R3 лицензионные пакеты UCK9 и SecurityK9. Сначала проверил текущую версию IOS и поддержку лицензий. Затем я добавил лицензии, указав модель маршрутизатора и необходимые технологические пакеты.
 
+---
 
+# <a id="part6"></a>Часть 6. Настройка DHCP-ретранслятора
 
+## Цель работы
+Настроить маршрутизатор R1 в качестве DHCP-ретранслятора для обеспечения возможности получения IP-адресов клиенту от DHCP-сервера.
 
+---
 
+## Задачи
+1. Настроить на R1 интерфейс f0/0 для перенаправления DHCP-запросов.
+2. Настроить DHCP-сервер с пулом адресов для сети 10.1.1.0/24.
+3. Проверить связь PC0 с DHCP-сервером.
 
+---
 
+## Ход выполнения
 
+### <a id="part6-step1"></a>Шаг 1. Настройка R1 как DHCP-ретранслятора
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/82442203-ebbf-483a-8ad0-aae4c3e21b7f"><br>
+  <em>Рисунок 35. Перенаправление DHCP-запросов на сервер 10.23.23.100</em>
+</p>
 
+### <a id="part6-step2"></a>Шаг 2. Проверка связи
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/eb2b26d5-99e9-44e8-8a5d-9194548d857c"><br>
+  <em>Рисунок 36. PC0 получил адрес 10.1.1.10 по DHCP</em>
+</p>
 
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/e07fb77d-9bf3-49d9-8092-10ebb3f35bcf"><br>
+  <em>Рисунок 37. Проверка связи PC0 с DHCP-сервером</em>
+</p>
 
+---
 
+## Вывод
+В шестой части работы я настроил DHCP-ретранслятор на маршрутизаторе R1. На интерфейсе f0/0 обеспечил перенаправление DHCP-запросов от клиента к DHCP-серверу, расположенному в сети 10.23.23.0/24. На Server PT настроил DHCP-пул для сети 10.1.1.0/24. В результате PC0 успешно получил IP-адрес 10.1.1.10 от сервера 10.23.23.100. PC0 пингует DHCP-сервер.
+
+---
+
+# <a id="part7"></a>Часть 7. Настройка IPv6-адресов
+
+## Цель работы
+Настроить IPv6-адресацию на всех маршрутизаторах в соответствии с ТЗ, включить маршрутизацию IPv6 и настроить EUI-64 на интерфейсе R1 f0/0.
+
+---
+
+## Задачи
+1. Назначить IPv6-адреса всем интерфейсам маршрутизаторов
+2. Включить маршрутизацию IPv6 на всех маршрутизаторах.
+3. Настроить на интерфейсе f0/0 R1 link-local адрес fe80::1.
+4. Настроить на интерфейсе f0/0 R1 глобальный адрес с использованием функции EUI-64.
+
+---
+
+## Ход выполнения
+
+### <a id="part7-step1"></a>Шаг 1. Настройка IPv6 адресов
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b42d304f-423f-41d2-aa5f-573d4ccc20fa"><br>
+  <em>Рисунок 38. Настройка IPv6 на R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c57b238c-b168-447f-b074-3f7568b50da1"><br>
+  <em>Рисунок 39. Настройка IPv6 на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b344e41e-0bb1-4fca-8b17-7f616cb51483"><br>
+  <em>Рисунок 40. Настройка IPv6 на R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c68b9c2a-e7f3-4703-a085-62a639486d77"><br>
+  <em>Рисунок 41. Настройка IPv6 на R1973</em>
+</p>
+
+### <a id="part7-step2"></a>Шаг 2. Проверка маршрутизации IPv6
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/317ab19c-25ba-4d6f-908f-8a2762546bc9"><br>
+  <em>Рисунок 42. Проверка IPv6-интерфейсов на R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b379b633-d085-408e-b3b5-2e27798cf2cd"><br>
+  <em>Рисунок 43. Проверка IPv6-интерфейсов на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2db3bde2-c21d-4bd1-a7b4-9bfc9073d0a1"><br>
+  <em>Рисунок 44. Проверка IPv6-интерфейсов на R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/4d3326d1-efab-4518-bb4c-a67c832d2f21"><br>
+  <em>Рисунок 45. Проверка IPv6-интерфейсов на R1973</em>
+</p>
+
+### <a id="part7-step3"></a>Шаг 3. Проверка EUI-64 адресации
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/1cd9be74-3317-491e-a006-19044a0db05f"><br>
+  <em>Рисунок 46. Интерфейс f0/0 R1 использует локальный адрес FE80::1</em>
+</p>
+
+---
+
+## Вывод
+В седьмой части работы я настроил IPv6-адресацию на всех маршрутизаторах. Включил маршрутизацию IPv6 на всех устройствах. Для глобального адреса использовал функцию EUI-64.
+
+---
+
+# <a id="part8"></a>Часть 8. Настройка OSPFv3
+
+## Цель работы
+Настроить протокол динамической маршрутизации OSPFv3 для IPv6 на маршрутизаторах R1, R2 и R3.
+
+---
+
+## Задачи
+1. Настроить OSPFv3 на R1, R2 и R3 с номером процесса 100.
+2. Назначить Router ID: R1 - 0.0.0.1, R2 - 0.0.0.2, R3 - 0.0.0.3.
+3. Объявить все подключенные IPv6-сети в OSPFv3.
+4. Распределить интерфейсы по зонам.
+5. Настроить R1 так, чтобы hello-пакеты отправлялись только через интерфейс f0/1.
+6. Настроить R3 как шлюз по умолчанию для всех маршрутизаторов OSPFv3.
+
+---
+
+## Ход выполнения
+
+### <a id="part8-step1"></a>Шаг 1. Настройка OSPFv3
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/701601a6-bedc-4f12-a482-84521c15f8fc"><br>
+  <em>Рисунок 47. OSPFv3 на R1 router-id 0.0.0.1 зоны 0 и 1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c9c953d2-9a5e-42f0-8271-d819f574877a"><br>
+  <em>Рисунок 48. OSPFv3 на R2 router-id 0.0.0.2 зоны 0 и 23</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f04e57be-9f6c-4e18-b4e8-ec837f7756ce"><br>
+  <em>Рисунок 49. OSPFv3 на R3 router-id 0.0.0.3 зона 23</em>
+</p>
+
+### <a id="part8-step2"></a>Шаг 2. Проверка router-id
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2b45fbcc-1c5c-4e2a-8351-993b8b17d261"><br>
+  <em>Рисунок 50. Проверка OSPFv3 R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/0c3f0dc8-9bf3-45a6-91f2-713a3edae075"><br>
+  <em>Рисунок 51. Проверка OSPFv3 R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f87c3db0-afc9-400d-a973-021e6cc10250"><br>
+  <em>Рисунок 52. Проверка OSPFv3 R3</em>
+</p>
+
+### <a id="part8-step3"></a>Шаг 3. Проверка объявления сетей
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/affeeba9-5385-40ee-b1dc-aa09efc61390"><br>
+  <em>Рисунок 53. Проверка маршрутов OSPFv3 и интерфейсов на R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/5b7a6584-7eea-41ff-a851-b2cddb5137b0"><br>
+  <em>Рисунок 54. Проверка маршрутов OSPFv3 и интерфейсов на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f449c59c-21cc-4805-a4b3-52ebb0218e62"><br>
+  <em>Рисунок 55. Проверка маршрутов OSPFv3 и интерфейсов на R3</em>
+</p>
+
+### <a id="part8-step4"></a>Шаг 4. Проверка процесса OSPFv3
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/24047078-9d30-478e-ac29-3c1f5f7f85f9"><br>
+  <em>Рисунок 56. Процесс OSPFv3 100 на R1</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/cceeeddb-765b-40db-8c04-046ad90a66cd"><br>
+  <em>Рисунок 57. Процесс OSPFv3 100 на R2</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/1b49e6ea-d0ef-4a29-bde0-168a2db00847"><br>
+  <em>Рисунок 58. Процесс OSPFv3 100 на R3</em>
+</p>
+
+### <a id="part8-step5"></a>Шаг 5. Проверка зон на R1
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3d75225b-a095-46f9-b3be-eb1a46c885b0"><br>
+  <em>Рисунок 59. Проверка OSPFv3 интерфейсов на R1</em>
+</p>
+
+### <a id="part8-step6"></a>Шаг 6. Проверка зон на R2
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/0094c26e-e643-4412-bf7a-4d3410fa530b"><br>
+  <em>Рисунок 60. Проверка OSPFv3 интерфейсов на R2</em>
+</p>
+
+### <a id="part8-step7"></a>Шаг 7. Проверка зоны на R3
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/316f1de5-c9ab-4bbf-afae-e808f65ce066"><br>
+  <em>Рисунок 61. Проверка OSPFv3 интерфейсов на R3</em>
+</p>
+
+### <a id="part8-step8"></a>Шаг 8. Настройка пассивных интерфейсов на R1
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/86c79259-0c65-4d3b-8ed4-67d0ec6ef09a"><br>
+  <em>Рисунок 62. На R1 блокировка OSPFv3 hello-сообщений на всех интерфейсах кроме f0/1</em>
+</p>
+
+### <a id="part8-step9"></a>Шаг 9. Настройка default route на R3
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3a85aad5-961d-45fd-bec2-322422fb1836"><br>
+  <em>Рисунок 63. Настройка распространения маршрута по умолчанию на R3</em>
+</p>
+
+---
+
+## Вывод
+В восьмой части работы я настроил протокол OSPFv3 для IPv6 на маршрутизаторах R1, R2 и R3 с номером процесса 100. Назначил Router ID для R1 - 0.0.0.1, R2 - 0.0.0.2, R3 - 0.0.0.3. Все интерфейсы объявлены в OSPFv3 с распределением по зонам. Hello-пакеты отправляются только через f0/1 R1. Настроил R3 для работы в качестве шлюза по умолчанию для всех маршрутизаторов OSPF для связи с любыми другими сетями.
+
+---
+
+# <a id="part9"></a>Часть 9. Настройка EIGRPv6
+
+## Цель работы
+Настроить протокол динамической маршрутизации EIGRPv6 для IPv6 между маршрутизаторами R3 и R1973.
+
+---
+
+## Задачи
+1. Настроить EIGRPv6 на R3 и R1973 с номером автономной системы 100.
+2. Назначить Router ID для R3 - 0.0.0.3, R1973 - 0.0.0.73.
+3. Настроить R1973 на анонсирование своей loopback-сети в EIGRPv6.
+4. Настроить на R1973 маршрут по умолчанию IPv6, указывающий на R3 в качестве next-hop.
+
+---
+
+## Ход выполнения
+
+### <a id="part9-step1"></a>Шаг 1. Настройка EIGRPv6
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/7be4291b-c312-46c5-84ce-f135fcdc3423"><br>
+  <em>Рисунок 64. Настройка EIGRPv6 на R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/0c9667c2-e67b-4a77-b954-f4f057b1c1bc"><br>
+  <em>Рисунок 65. Настройка EIGRPv6 на R1973</em>
+</p>
+
+### <a id="part9-step2"></a>Шаг 2. Проверка AS 100
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/ba5b6e55-2489-494d-9c92-f902d42dc31c"><br>
+  <em>Рисунок 66. EIGRPv6 AS 100 на R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/65f324f4-ca49-4d04-9928-08b3809db942"><br>
+  <em>Рисунок 67. EIGRPv6 AS 100 на R1973</em>
+</p>
+
+### <a id="part9-step3"></a>Шаг 3. Проверка router-id
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/a12a676b-0698-439c-b060-e252e1e5a743"><br>
+  <em>Рисунок 68. Router-id 0.0.0.3 в конфигурации R3</em>
+</p>
+
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/305e7e61-b92e-447f-89ff-cb587a275e12"><br>
+  <em>Рисунок 69. Router-id 0.0.0.3 в конфигурации R1973</em>
+</p>
+
+### <a id="part9-step4"></a>Шаг 4. Анонс loopback R1973 в EIGRPv6
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/67a65a92-eb9d-4dc7-89a2-758e472ddb56"><br>
+  <em>Рисунок 70. Включение EIGRPv6 100 на интерфейсе loopback 3</em>
+</p>
+
+### <a id="part9-step5"></a>Шаг 5. Настройка default route на R1973
+<p align="center">
+  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/6ac68828-dc17-4834-9424-4ab3cd77fc59"><br>
+  <em>Рисунок 71. Статический маршрут по умолчанию на R1973</em>
+</p>
+
+---
+
+## Вывод
+В девятой части работы я настроил EIGRPv6 между R3 и R1973. Loopback3 R1973 объявлен в EIGRPv6, настроен статический маршрут по умолчанию через R3. Соседство EIGRPv6 установлено, маршрутизация работает.
+
+---
 
 # <a id="part10"></a>Полная конфигурация устройств
 <details>
