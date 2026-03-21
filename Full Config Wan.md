@@ -687,7 +687,7 @@ OSPFv2 с номером 100 на каждом маршрутизаторе.
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/305e7e61-b92e-447f-89ff-cb587a275e12"><br>
-  <em>Рисунок 69. Router-id 0.0.0.3 в конфигурации R1973</em>
+  <em>Рисунок 69. Router-id 0.0.0.73 в конфигурации R1973</em>
 </p>
 
 ### <a id="part9-step4"></a>Шаг 4. Анонс loopback R1973 в EIGRPv6
