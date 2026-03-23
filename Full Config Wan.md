@@ -431,13 +431,8 @@ OSPFv2 с номером 100 на каждом маршрутизаторе.
 
 ### <a id="part6-step2"></a>Шаг 2. Проверка связи
 <p align="center">
-  <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/eb2b26d5-99e9-44e8-8a5d-9194548d857c"><br>
-  <em>Рисунок 36. PC0 получил адрес 10.1.1.10 по DHCP</em>
-</p>
-
-<p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/e07fb77d-9bf3-49d9-8092-10ebb3f35bcf"><br>
-  <em>Рисунок 37. Проверка связи PC0 с DHCP-сервером</em>
+  <em>Рисунок 36. Проверка связи PC0 с DHCP-сервером</em>
 </p>
 
 ---
@@ -467,49 +462,49 @@ OSPFv2 с номером 100 на каждом маршрутизаторе.
 ### <a id="part7-step1"></a>Шаг 1. Настройка IPv6 адресов
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b42d304f-423f-41d2-aa5f-573d4ccc20fa"><br>
-  <em>Рисунок 38. Настройка IPv6 на R1</em>
+  <em>Рисунок 37. Настройка IPv6 на R1</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c57b238c-b168-447f-b074-3f7568b50da1"><br>
-  <em>Рисунок 39. Настройка IPv6 на R2</em>
+  <em>Рисунок 38. Настройка IPv6 на R2</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b344e41e-0bb1-4fca-8b17-7f616cb51483"><br>
-  <em>Рисунок 40. Настройка IPv6 на R3</em>
+  <em>Рисунок 39. Настройка IPv6 на R3</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c68b9c2a-e7f3-4703-a085-62a639486d77"><br>
-  <em>Рисунок 41. Настройка IPv6 на R1973</em>
+  <em>Рисунок 40. Настройка IPv6 на R1973</em>
 </p>
 
 ### <a id="part7-step2"></a>Шаг 2. Проверка маршрутизации IPv6
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/317ab19c-25ba-4d6f-908f-8a2762546bc9"><br>
-  <em>Рисунок 42. Проверка IPv6-интерфейсов на R1</em>
+  <em>Рисунок 41. Проверка IPv6-интерфейсов на R1</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/b379b633-d085-408e-b3b5-2e27798cf2cd"><br>
-  <em>Рисунок 43. Проверка IPv6-интерфейсов на R2</em>
+  <em>Рисунок 42. Проверка IPv6-интерфейсов на R2</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2db3bde2-c21d-4bd1-a7b4-9bfc9073d0a1"><br>
-  <em>Рисунок 44. Проверка IPv6-интерфейсов на R3</em>
+  <em>Рисунок 43. Проверка IPv6-интерфейсов на R3</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/4d3326d1-efab-4518-bb4c-a67c832d2f21"><br>
-  <em>Рисунок 45. Проверка IPv6-интерфейсов на R1973</em>
+  <em>Рисунок 44. Проверка IPv6-интерфейсов на R1973</em>
 </p>
 
 ### <a id="part7-step3"></a>Шаг 3. Проверка EUI-64 адресации
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/1cd9be74-3317-491e-a006-19044a0db05f"><br>
-  <em>Рисунок 46. Интерфейс f0/0 R1 использует локальный адрес FE80::1</em>
+  <em>Рисунок 45. Интерфейс f0/0 R1 использует локальный адрес FE80::1</em>
 </p>
 
 ---
@@ -541,95 +536,95 @@ OSPFv2 с номером 100 на каждом маршрутизаторе.
 ### <a id="part8-step1"></a>Шаг 1. Настройка OSPFv3
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/701601a6-bedc-4f12-a482-84521c15f8fc"><br>
-  <em>Рисунок 47. OSPFv3 на R1 router-id 0.0.0.1 зоны 0 и 1</em>
+  <em>Рисунок 46. OSPFv3 на R1 router-id 0.0.0.1 зоны 0 и 1</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/c9c953d2-9a5e-42f0-8271-d819f574877a"><br>
-  <em>Рисунок 48. OSPFv3 на R2 router-id 0.0.0.2 зоны 0 и 23</em>
+  <em>Рисунок 47. OSPFv3 на R2 router-id 0.0.0.2 зоны 0 и 23</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f04e57be-9f6c-4e18-b4e8-ec837f7756ce"><br>
-  <em>Рисунок 49. OSPFv3 на R3 router-id 0.0.0.3 зона 23</em>
+  <em>Рисунок 48. OSPFv3 на R3 router-id 0.0.0.3 зона 23</em>
 </p>
 
 ### <a id="part8-step2"></a>Шаг 2. Проверка router-id
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/2b45fbcc-1c5c-4e2a-8351-993b8b17d261"><br>
-  <em>Рисунок 50. Проверка OSPFv3 R1</em>
+  <em>Рисунок 49. Проверка OSPFv3 R1</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/0c3f0dc8-9bf3-45a6-91f2-713a3edae075"><br>
-  <em>Рисунок 51. Проверка OSPFv3 R2</em>
+  <em>Рисунок 50. Проверка OSPFv3 R2</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f87c3db0-afc9-400d-a973-021e6cc10250"><br>
-  <em>Рисунок 52. Проверка OSPFv3 R3</em>
+  <em>Рисунок 51. Проверка OSPFv3 R3</em>
 </p>
 
 ### <a id="part8-step3"></a>Шаг 3. Проверка объявления сетей
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/affeeba9-5385-40ee-b1dc-aa09efc61390"><br>
-  <em>Рисунок 53. Проверка маршрутов OSPFv3 и интерфейсов на R1</em>
+  <em>Рисунок 52. Проверка маршрутов OSPFv3 и интерфейсов на R1</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/5b7a6584-7eea-41ff-a851-b2cddb5137b0"><br>
-  <em>Рисунок 54. Проверка маршрутов OSPFv3 и интерфейсов на R2</em>
+  <em>Рисунок 53. Проверка маршрутов OSPFv3 и интерфейсов на R2</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/f449c59c-21cc-4805-a4b3-52ebb0218e62"><br>
-  <em>Рисунок 55. Проверка маршрутов OSPFv3 и интерфейсов на R3</em>
+  <em>Рисунок 54. Проверка маршрутов OSPFv3 и интерфейсов на R3</em>
 </p>
 
 ### <a id="part8-step4"></a>Шаг 4. Проверка процесса OSPFv3
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/24047078-9d30-478e-ac29-3c1f5f7f85f9"><br>
-  <em>Рисунок 56. Процесс OSPFv3 100 на R1</em>
+  <em>Рисунок 55. Процесс OSPFv3 100 на R1</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/cceeeddb-765b-40db-8c04-046ad90a66cd"><br>
-  <em>Рисунок 57. Процесс OSPFv3 100 на R2</em>
+  <em>Рисунок 56. Процесс OSPFv3 100 на R2</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/1b49e6ea-d0ef-4a29-bde0-168a2db00847"><br>
-  <em>Рисунок 58. Процесс OSPFv3 100 на R3</em>
+  <em>Рисунок 57. Процесс OSPFv3 100 на R3</em>
 </p>
 
 ### <a id="part8-step5"></a>Шаг 5. Проверка зон на R1
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3d75225b-a095-46f9-b3be-eb1a46c885b0"><br>
-  <em>Рисунок 59. Проверка OSPFv3 интерфейсов на R1</em>
+  <em>Рисунок 58. Проверка OSPFv3 интерфейсов на R1</em>
 </p>
 
 ### <a id="part8-step6"></a>Шаг 6. Проверка зон на R2
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/0094c26e-e643-4412-bf7a-4d3410fa530b"><br>
-  <em>Рисунок 60. Проверка OSPFv3 интерфейсов на R2</em>
+  <em>Рисунок 59. Проверка OSPFv3 интерфейсов на R2</em>
 </p>
 
 ### <a id="part8-step7"></a>Шаг 7. Проверка зоны на R3
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/316f1de5-c9ab-4bbf-afae-e808f65ce066"><br>
-  <em>Рисунок 61. Проверка OSPFv3 интерфейсов на R3</em>
+  <em>Рисунок 60. Проверка OSPFv3 интерфейсов на R3</em>
 </p>
 
 ### <a id="part8-step8"></a>Шаг 8. Настройка пассивных интерфейсов на R1
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/86c79259-0c65-4d3b-8ed4-67d0ec6ef09a"><br>
-  <em>Рисунок 62. На R1 блокировка OSPFv3 hello-сообщений на всех интерфейсах кроме f0/1</em>
+  <em>Рисунок 61. На R1 блокировка OSPFv3 hello-сообщений на всех интерфейсах кроме f0/1</em>
 </p>
 
 ### <a id="part8-step9"></a>Шаг 9. Настройка default route на R3
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/3a85aad5-961d-45fd-bec2-322422fb1836"><br>
-  <em>Рисунок 63. Настройка распространения маршрута по умолчанию на R3</em>
+  <em>Рисунок 62. Настройка распространения маршрута по умолчанию на R3</em>
 </p>
 
 ---
@@ -659,47 +654,47 @@ OSPFv2 с номером 100 на каждом маршрутизаторе.
 ### <a id="part9-step1"></a>Шаг 1. Настройка EIGRPv6
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/7be4291b-c312-46c5-84ce-f135fcdc3423"><br>
-  <em>Рисунок 64. Настройка EIGRPv6 на R3</em>
+  <em>Рисунок 63. Настройка EIGRPv6 на R3</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/0c9667c2-e67b-4a77-b954-f4f057b1c1bc"><br>
-  <em>Рисунок 65. Настройка EIGRPv6 на R1973</em>
+  <em>Рисунок 64. Настройка EIGRPv6 на R1973</em>
 </p>
 
 ### <a id="part9-step2"></a>Шаг 2. Проверка AS 100
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/ba5b6e55-2489-494d-9c92-f902d42dc31c"><br>
-  <em>Рисунок 66. EIGRPv6 AS 100 на R3</em>
+  <em>Рисунок 65. EIGRPv6 AS 100 на R3</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/65f324f4-ca49-4d04-9928-08b3809db942"><br>
-  <em>Рисунок 67. EIGRPv6 AS 100 на R1973</em>
+  <em>Рисунок 66. EIGRPv6 AS 100 на R1973</em>
 </p>
 
 ### <a id="part9-step3"></a>Шаг 3. Проверка router-id
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/a12a676b-0698-439c-b060-e252e1e5a743"><br>
-  <em>Рисунок 68. Router-id 0.0.0.3 в конфигурации R3</em>
+  <em>Рисунок 67. Router-id 0.0.0.3 в конфигурации R3</em>
 </p>
 
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/305e7e61-b92e-447f-89ff-cb587a275e12"><br>
-  <em>Рисунок 69. Router-id 0.0.0.73 в конфигурации R1973</em>
+  <em>Рисунок 68. Router-id 0.0.0.73 в конфигурации R1973</em>
 </p>
 
 ### <a id="part9-step4"></a>Шаг 4. Анонс loopback R1973 в EIGRPv6
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/67a65a92-eb9d-4dc7-89a2-758e472ddb56"><br>
-  <em>Рисунок 70. Включение EIGRPv6 100 на интерфейсе loopback 3</em>
+  <em>Рисунок 69. Включение EIGRPv6 100 на интерфейсе loopback 3</em>
 </p>
 
 ### <a id="part9-step5"></a>Шаг 5. Настройка default route на R1973
 <p align="center">
   <img width="1563" height="671" alt="ч1 1" src="https://github.com/user-attachments/assets/6ac68828-dc17-4834-9424-4ab3cd77fc59"><br>
-  <em>Рисунок 71. Статический маршрут по умолчанию на R1973</em>
+  <em>Рисунок 70. Статический маршрут по умолчанию на R1973</em>
 </p>
 
 ---
